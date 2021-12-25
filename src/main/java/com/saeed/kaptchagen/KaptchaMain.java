@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 
 public class KaptchaMain {
     public static void main(String[] args) throws IOException {
-        Properties properties = new Properties();
+
         String folder = args[0];
         String img_width = args[1];
         String img_height = args[2];
@@ -25,9 +25,8 @@ public class KaptchaMain {
         String char_string = args[5];
         String char_length = args[6];
         int num_samples = Integer.parseInt(args[7]);
-        int add_space = Integer.parseInt(args[8]);
-        
-//
+        int add_space = Integer.parseInt(args[8]);        
+
 //        String folder = "data";
 //        String img_width = "200";
 //        String img_height = "50";
@@ -43,6 +42,8 @@ public class KaptchaMain {
         System.out.println(dataPath.toString());
         new File(dataPath.toString()).mkdirs();
 
+
+        Properties properties = new Properties();
         properties.setProperty("kaptcha.image.width", img_width);
         properties.setProperty("kaptcha.image.height", img_height);
         properties.setProperty("kaptcha.textproducer.font.size ", font_size);
@@ -58,15 +59,18 @@ public class KaptchaMain {
         DefaultTextCreator textCreator = new DefaultTextCreator();
         textCreator.setConfig(config);
         String text_generated;
+        String text_generated_captcha;
         for(int i=1;i<=num_samples;i++){  
             text_generated = textCreator.getText();
+            text_generated_captcha = text_generated;
             if (add_space > 0){
                 String str_space = String.join("", Collections.nCopies(add_space, " "));
-                text_generated = text_generated + str_space;
+                text_generated_captcha = text_generated + str_space;
 
             }
-            BufferedImage image = kaptcha.createImage( text_generated);
+            BufferedImage image = kaptcha.createImage(text_generated_captcha);
             Path filePath = Paths.get(dataPath.toString(), text_generated + ".jpg");
+            System.out.println(filePath.toString());
             File output = new File(filePath.toString());
             ImageIO.write(image, "jpg", output); 
         }  
