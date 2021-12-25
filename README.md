@@ -1,6 +1,7 @@
 # KaptchaGenerator
 ## What is kaptcha
 Kaptcha is one of the most famous libraries used in websites in order to create captchas. The generated captcha usually looks like this:
+
 ![Alt text](/samples/1.jpg?raw=true "Title")
 ![Alt text](/samples/2.png?raw=true "Title")
 ![Alt text](/samples/3.png?raw=true "Title")
