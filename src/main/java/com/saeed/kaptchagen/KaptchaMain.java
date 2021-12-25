@@ -17,29 +17,29 @@ import java.nio.file.Paths;
 public class KaptchaMain {
     public static void main(String[] args) throws IOException {
         Properties properties = new Properties();
-//        String Folder = args[0];
-//        String img_width = args[1];
-//        String img_height = args[2];
-//        String font_size = args[3];
-//        String font_color = args[4];
-//        String char_string = args[5];
-//        String char_length = args[6];
-//        int num_samples = Integer.parseInt(args[7]);
-//        int add_space = Integer.parseInt(args[8]);
+        String folder = args[0];
+        String img_width = args[1];
+        String img_height = args[2];
+        String font_size = args[3];
+        String font_color = args[4];
+        String char_string = args[5];
+        String char_length = args[6];
+        int num_samples = Integer.parseInt(args[7]);
+        int add_space = Integer.parseInt(args[8]);
         
-
-        String Folder = "data";
-        String img_width = "200";
-        String img_height = "50";
-        String font_size = "50";
-        String font_color = "0,0,230";
-        String char_string = "0123456789";
-        String char_length = "5";
-        int num_samples = 2000;
-        int add_space = 22;
+//
+//        String folder = "data";
+//        String img_width = "200";
+//        String img_height = "50";
+//        String font_size = "50";
+//        String font_color = "0,0,230";
+//        String char_string = "0123456789";
+//        String char_length = "5";
+//        int num_samples = 2000;
+//        int add_space = 22;
 
         Path currentPath = Paths.get(System.getProperty("user.dir"));
-        Path dataPath = Paths.get(currentPath.toString(), Folder);
+        Path dataPath = Paths.get(currentPath.toString(), folder);
         System.out.println(dataPath.toString());
         new File(dataPath.toString()).mkdirs();
 
