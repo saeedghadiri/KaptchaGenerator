@@ -70,7 +70,6 @@ public class KaptchaMain {
             }
             BufferedImage image = kaptcha.createImage(text_generated_captcha);
             Path filePath = Paths.get(dataPath.toString(), text_generated + ".jpg");
-            System.out.println(filePath.toString());
             File output = new File(filePath.toString());
             ImageIO.write(image, "jpg", output); 
         }  
